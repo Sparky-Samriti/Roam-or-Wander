@@ -43,8 +43,10 @@ main().then(() => {
     console.log(err);
 });
 
-app.listen(8080, () => {
-    console.log("App is listening to port 8080");
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+    console.log(`App is listening to port ${port}`);
 });
 
 // Mongo Session Store :
@@ -107,6 +109,9 @@ app.use("/listings" , listingRouter);
 app.use("/listings/:id/reviews" , reviewRouter);
 app.use("/" , userRouter);
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 
 // Error handling :
