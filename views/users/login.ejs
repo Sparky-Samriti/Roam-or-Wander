@@ -1,0 +1,24 @@
+<% layout("/layout/boilerplate"); %>
+
+    <body>
+        <div class="editBody">
+
+            <form action="/login" method="POST" novalidate class="needs-validation">
+                <h1>Login to Wanderlust : </h1>
+                <div class="editImg">
+                    <label for="username">Username : </label>
+                    <input type="text" name="username" placeholder="Enter username" required>
+                    <div class="invalid-feedback">Please add a valid username.</div>
+                </div>
+
+                <div class="editImg">
+                    <label for="password">Password : </label>
+                    <input type="password" name="password" placeholder="Enter password" required>
+                    <div class="invalid-feedback">Please enter correct password.</div>
+                </div>
+
+               
+                <button class=" editBtn newBtn">Login</button>
+            </form>
+        </div>
+    </body>

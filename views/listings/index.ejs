@@ -1,0 +1,23 @@
+<% layout("/layout/boilerplate"); %>
+
+
+    <body class="indexBody">
+        <div class="allCards">
+            <% for (list of allList) { %>
+                <div class="card">
+                    <a href="/listings/<%=list._id%>">
+                        <div><img src="<%=list.image.url%>" alt="place"></div>
+                        <div class="listTitle">
+                            <%=list.title%>
+                        </div>
+                        <div class="listPrice">
+                            &#8377;<%=Number(list.price).toLocaleString("en-IN")%> for 1 night
+                        </div>
+                    </a>
+                    <i class="fa-heart heart <%= (currUser && currUser.wishlist && currUser.wishlist.some(id => id.toLocaleString() === list._id.toLocaleString())) ? 'fa-solid redHeart' : 'fa-regular' %> " data-id="<%= list._id %>"></i>
+
+                </div>
+                <% } %>
+        </div>
+
+    </body>

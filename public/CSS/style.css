@@ -1,0 +1,974 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Lato", sans-serif;
+    background-color: var(--color-warm-cream);
+    color: var(--color-charcoal);
+}
+
+.container {
+    padding: 0 10px;
+}
+
+:root {
+    --color-charcoal: #363536;
+    --color-blush-pink: #F1D3CE;
+    --color-white: #FEFEFE;
+    --color-soft-blush: #F8E6E3;
+    --color-deep-rose: #D89690;
+    --color-warm-cream: #FAF8F5;
+    --color-slate-gray: #6B6A6B;
+    --color-dark-rose: #895c59;
+}
+
+/* navbar  */
+.navbar,
+.airLogo,
+.midNav,
+.lastNav {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-style: normal;
+    z-index: 10;
+}
+
+.navbar {
+    justify-content: space-between;
+    padding: 20px 30px;
+    font-weight: 100;
+    border-bottom: 2.5px solid rgb(237, 237, 237);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-charcoal);
+    color: var(--color-soft-blush);
+}
+
+.logo {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.midNav {
+    gap: 15px;
+    border: 1px solid rgb(92 92 92);
+    padding: 5px;
+    border-radius: 24px;
+    justify-content: space-around;
+}
+
+.midNavMore {
+    display: none;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    padding: 7px 0 0 4px;
+}
+
+.midNavMore i {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.separator {
+    color: rgb(92 92 92);
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.homeLogo {
+    font-size: 28px;
+    color: var(--color-deep-rose);
+}
+
+.searchLogo i {
+    font-size: 19px;
+    height: 2.2rem;
+    border-radius: 50%;
+    width: 2.2rem;
+    padding: 9px 2px 0px 2px;
+    background-color: var(--color-deep-rose);
+    color: var(--color-charcoal);
+
+}
+
+.allPlace,
+.addPlace {
+    text-decoration: none;
+    color: var(--color-soft-blush);
+}
+
+.lastNav {
+    gap: 12px;
+}
+
+.lastNav i {
+    height: 2.2rem;
+    border-radius: 50%;
+    width: 2.2rem;
+    padding: 9px 2px 0px 2px;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.langIcon {
+    padding-left: 12px;
+}
+
+.wishlistPage {
+    text-decoration: none;
+    color: var(--color-soft-blush);
+}
+
+.mobilePanel {
+    display: none;
+}
+
+.mobileIcon {
+    background-color: transparent;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.mobilePanel div {
+    font-size: 10px;
+    cursor: pointer;
+    padding-bottom: 2px;
+}
+
+.explore,
+.wishlist,
+.logOrSignin {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 4px;
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+
+.optionClicked {
+    color: var(--color-deep-rose);
+}
+
+/* more popup */
+
+.morePopup {
+    height: 100px;
+    width: 180px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--color-soft-blush);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    box-shadow: black 0 1px 2px;
+    top: 80px;
+    z-index: 11;
+    visibility: hidden;
+    right: 20px;
+}
+
+.signup {
+    border-bottom: black;
+}
+
+.morePopup hr , .midNavMorePopup hr {
+    border: 0.1px solid var(--color-blush-pink);
+    width: 140px;
+    color: rgb(234, 234, 234);
+}
+
+.morePopup a {
+    text-decoration: none;
+    color: black;
+}
+
+/* midNavMore popup :  */
+.midNavMorePopup {
+    height: 100px;
+    width: 180px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--color-soft-blush);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    box-shadow: black 0 1px 2px;
+    top: 80px;
+    z-index: 11;
+    visibility: hidden;
+    right: 20px;
+}
+
+.midNavMorePopup a {
+    color: var(--color-charcoal);
+}
+
+.showPopup {
+    visibility: visible;
+}
+
+/* footer  */
+.footer,
+.set {
+    display: flex;
+    flex-direction: column;
+}
+
+.upper,
+.lower,
+.privacy,
+.links,
+.link {
+    display: flex;
+}
+
+.footer {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--color-charcoal);
+    color: var(--color-soft-blush);
+}
+
+.upper {
+    justify-content: space-between;
+    padding: 50px;
+    width: 70%;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.topics,
+.privacy {
+    font-weight: 400;
+}
+
+.set {
+    gap: 15px;
+}
+
+.privacy {
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.lower {
+    justify-content: space-between;
+    padding: 30px 42px 120px 51px;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 1px solid rgb(237, 237, 237);
+}
+
+.links {
+    font-weight: 400;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.link {
+    gap: 10px;
+}
+
+.connect {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* index.ejs  */
+.allCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 40px;
+    gap: 45px;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.card {
+    position: relative;
+    width: 30%;
+    height: 30%;
+    max-width: 430px;
+    flex: 1 1 400px;
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--color-deep-rose);
+}
+
+.card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.heart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.redHeart {
+    color: var(--color-deep-rose);
+}
+
+.listPrice {
+    font-weight: 400;
+    color: var(--color-slate-gray);
+}
+
+
+
+/* show.ejs  */
+
+
+.showContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px 0px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.showLeft {
+    max-width: 100%;
+    flex: 1 1 450px;
+}
+
+.showRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+    border-radius: 20px;
+    flex: 1 1 350px;
+}
+
+.showDesc {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 20px;
+    border-radius: 10px;
+    background-color: var(--color-soft-blush);
+    color: var(--color-dark-rose);
+}
+
+.showImage {
+    max-width: 800px;
+}
+
+.showLeft img {
+    max-height: 500px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+h1,
+h2 {
+    margin: 5px 25px;
+    font-size: calc(1.3rem + 1vw);
+    color: var(--color-dark-rose);
+}
+
+h2,
+h3 {
+    color: var(--color-slate-gray);
+}
+
+.owner {
+    color: var(--color-slate-gray);
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.showPrice,
+.showLoc {
+    font-size: 1.5rem;
+    align-self: center;
+    border-radius: 10px;
+    height: auto;
+    text-align: center;
+    padding: 0.5rem 14px;
+    flex: 1 1 180px;
+    background-color: var(--color-soft-blush);
+    color: var(--color-dark-rose);
+}
+
+.priceLoc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btns button {
+    border: none;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    height: 50px;
+    width: 120px;
+    cursor: pointer;
+    background-color: var(--color-deep-rose);
+    color: var(--color-white);
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.upperRight {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+/* edit.ejs  */
+.editBody {
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+}
+
+.editBody h1 {
+    margin: 10px auto 0px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.editBody form {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 400px;
+    height: 100%;
+    margin: 10px auto;
+    background-color: var(--color-blush-pink);
+    gap: 10px;
+    padding: 10px;
+    min-width: 280px;
+}
+
+.priceLocation {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+}
+
+.fullLoc,
+.editPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editBody input,
+.editBody textarea,
+.editBody select {
+    text-align: center;
+    width: 100%;
+    background-color: var(--color-soft-blush);
+    color: var(--color-dark-rose);
+    border: 1px transparent;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.editImg {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editImg input {
+    align-self: center;
+}
+
+.editBody textarea {
+    width: 100%;
+    overflow: hidden;
+}
+
+.fullLoc input {
+    align-self: flex-end;
+}
+
+.editDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.editBody label {
+    color: var(--color-dark-rose);
+    font-weight: 600;
+    width: 100%;
+    margin: 5px auto;
+    display: block;
+}
+
+.fullLoc {
+    font-weight: 600;
+}
+
+.editBtn {
+    background-color: var(--color-dark-rose);
+    color: white;
+    border: 1px transparent !important;
+    border-radius: 40px;
+    height: 50px;
+    width: 40%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.editBody input::placeholder,
+.editBody textarea::placeholder {
+    color: var(--color-dark-rose);
+}
+
+.imageBox::file-selector-button {
+    font-weight: bold;
+    color: white;
+    background-color: var(--color-deep-rose);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.newBtn {
+    margin-bottom: 10px;
+}
+
+/* edit.ejs validations : */
+
+.was-validated :invalid {
+    border: 2px solid white !important;
+    background-color: var(--color-deep-rose);
+}
+
+.was-validated :valid {
+    border: 2px solid var(--color-slate-gray);
+}
+
+.invalid-feedback {
+    color: var(--color-slate-gray);
+    font-size: 0.70rem;
+    font-weight: bold;
+    display: none;
+}
+
+.was-validated :invalid~.invalid-feedback {
+    display: block;
+    position: absolute;
+    padding-top: 76px;
+    align-self: flex-end;
+    padding-right: 35px;
+}
+
+.editDesc .invalid-feedback {
+    padding-top: 95px !important;
+}
+
+.locationFeedback {
+    padding-top: 75px !important;
+    padding-right: 20px !important;
+}
+
+/* error.ejs  */
+.errMsg {
+    height: 100%;
+    max-width: 370px;
+    border: 2px solid var(--color-slate-gray);
+    margin: 200px auto;
+    text-align: center;
+    padding: 32px;
+    font-size: 30px;
+    border-radius: 40px;
+    background-color: var(--color-soft-blush);
+}
+
+/* review form :  */
+.showDoc {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.showDoc hr {
+    font-size: 30px;
+    font-weight: 100;
+    margin: 50px 0;
+    color: #dcdcdc;
+    border: 1px solid;
+}
+
+.reviewForm {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.reviewForm>form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-weight: bold;
+    margin: 25px auto;
+    background-color: var(--color-blush-pink);
+    color: var(--color-dark-rose);
+    min-width: 280px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    padding: 30px 20px;
+    border-radius: 40px;
+    flex: 1 1 550px;
+    box-sizing: border-box;
+}
+
+.reviewForm>form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.reviewForm input,
+.reviewForm textarea {
+    background-color: var(--color-soft-blush);
+    text-align: center;
+    width: 100%;
+    color: var(--color-dark-rose);
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.reviewForm input::placeholder,
+.reviewForm textarea::placeholder {
+    color: var(--color-dark-rose);
+    font-size: 15px;
+}
+
+.reviewForm>form>button {
+    background-color: var(--color-dark-rose);
+    color: white;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    margin: 0 auto;
+    max-width: 180px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reviewForm .was-validated :valid {
+    border: 2px solid #ffd5d5;
+}
+
+.sender .invalid-feedback {
+    padding-top: 85px !important;
+    align-self: center !important;
+}
+
+.reviewComment .invalid-feedback {
+    padding-top: 150px !important;
+    align-self: center !important;
+}
+
+.showReview {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex: 1 1 450px;
+}
+
+.reviewForm.wrapReviews .showReview {
+    flex-basis: 100%;
+}
+
+.reviewCard {
+    color: var(--color-slate-gray);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.oneCard {
+    background-color: var(--color-soft-blush);
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 1 1 240px;
+    max-width: 300px;
+}
+
+.cardName,
+.cardRating {
+    font-size: 1rem;
+}
+
+.cardComment {
+    font-size: 1.2rem;
+}
+
+.showReview button {
+    background-color: var(--color-slate-gray);
+    color: var(--color-soft-blush);
+    border: transparent;
+    border-radius: 20px;
+    padding: 6px;
+}
+
+.cardRating {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Flash messages : */
+
+.successMsg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-soft-blush);
+    border: 3px solid var(--color-slate-gray);
+    border-radius: 20px;
+    z-index: 1;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 25%;
+    height: 180px;
+    transform: translate(-50%, -50%);
+    animation: flashPop 1s linear alternate forwards;
+    min-width: 280px;
+}
+
+@keyframes flashPop {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+        filter: opacity(0);
+
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        filter: opacity(1);
+
+    }
+}
+
+.successMsg button {
+    background-color: var(--color-deep-rose);
+    color: white;
+    border: 2px solid transparent;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-style: normal;
+    cursor: pointer;
+}
+
+/* Background blur during flash messsages : */
+.blurred {
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+
+/* Rating stars in the form :  */
+.starability-growRotate>input:checked~label,
+.starability-growRotate .button,
+.starability-growRotate label {
+    filter: invert(21%) sepia(1%) saturate(40%) hue-rotate(310deg) brightness(92%) contrast(161%);
+}
+
+
+/* Rating stars in reviews shown :  */
+.starability-result {
+    /* filter: hue-rotate(307deg) saturate(1.5); */
+    filter: invert(21%) sepia(1%) saturate(40%) hue-rotate(310deg) brightness(92%) contrast(161%);
+}
+
+/* Image preview in edit form :  */
+.imgDisplay img {
+    width: 100px;
+    height: 100px;
+}
+
+.imgDisplay {
+    color: var(--color-dark-rose);
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.mapShow {
+    width: 100%;
+    max-width: 100%;
+}
+
+.mapShow h3 {
+    margin: 0 15px 20px;
+}
+
+#map {
+    height: 500px;
+    max-width: calc(100% - 20vw);
+    margin: 10px auto;
+    z-index: 0;
+    min-width: 280px;
+}
+
+h3 {
+    margin: 30px 15px 20px;
+}
+
+/* Navbar Responsiveness :  */
+@media (max-width : 1024px) {
+    .wishlistPage {
+        display: none;
+    }
+}
+
+@media (max-width : 768px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .lastNav {
+        position: fixed;
+        bottom: 0px;
+        left: 0;
+        background-color: var(--color-charcoal);
+        width: 100%;
+        height: 9%;
+    }
+
+    .langIcon,
+    .moreIcon {
+        display: none;
+    }
+
+    .morePopup {
+        display: none;
+    }
+
+    .mobilePanel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 60px;
+        border-top: 2.5px solid rgb(237, 237, 237);
+    }
+
+    .separatorOne,
+    .allPlace,
+    .midNav i {
+        display: none;
+    }
+}
+
+@media (max-width : 480px) {
+    .midNav {
+        display: none;
+    }
+
+    .midNavMore {
+        display: inline-block;
+    }
+
+}
+
+/* Target the input when it is autofilled : */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    /* Use a large inset box-shadow to override the grey background */
+    -webkit-box-shadow: 0 0 0 1000px var(--color-soft-blush) inset !important;
+    -webkit-text-fill-color: var(--color-slate-gray) !important; 
+}

@@ -1,0 +1,137 @@
+<% layout("/layout/boilerplate"); %>
+
+
+    <body>
+        <div class="showDoc">
+            <h1>
+                <%=currList.title%>
+            </h1>
+            <div class="owner">Owned by <i>
+                    <%=currList.owner.username%>
+                </i></div>
+            <div class="showContainer">
+
+
+                <div class="showLeft">
+                    <div class="showImage"><img src="<%=currList.image.url%>" alt="place"></div>
+                </div>
+                <div class="showRight">
+                    <div class="upperRight">
+                        <div class="showDesc">
+                            <%=currList.description%>
+                        </div>
+                        <div class="priceLoc">
+                            <div class="showPrice">&#8377;<%=Number(currList.price).toLocaleString("en-IN")%> for 1
+                                    night</div>
+                            <div class="showLoc">
+                                <%=currList.location%>
+                            </div>
+                        </div>
+                    </div>
+                    <% if(currUser && currUser._id.equals(currList.owner._id)) { %>
+                        <div class="btns">
+                            <form action="/listings/<%=currList._id%>/edit" method="GET">
+                                <button>Edit</button>
+                            </form>
+                            <form action="/listings/<%=currList._id%>?_method=DELETE" method="POST">
+                                <button>Delete</button>
+                            </form>
+                        </div>
+                        <% } %>
+                </div>
+
+
+            </div>
+<hr>
+
+            <% if(currUser) { %>
+                <h2>Leave a review</h2>
+                <div class="reviewForm">
+
+                    <form action="/listings/<%=currList._id%>/reviews" method="POST" novalidate
+                        class="needs-validation">
+                        <div class="sender">
+                            <label for="reviewSender">Your Name :</label>
+                            <input type="text" name="review[reviewSender]" id="reviewSender"
+                                placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Please add a valid name.</div>
+                        </div>
+                        <div class="reviewRating">
+                            <label for="rating">Rating :</label>
+                            <fieldset class="starability-growRotate">
+                                <!-- <legend>Rating:</legend> -->
+                                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1"
+                                    checked aria-label="No rating." />
+                                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+                                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+                                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+                                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+                                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+                            </fieldset>
+                        </div>
+
+
+
+                        <div class="reviewComment">
+                            <label for="comment">Comments :</label>
+                            <textarea type="text" name="review[comment]" id="comment" cols="30" rows="5"
+                                placeholder="Enter comments" required></textarea>
+                            <div class="invalid-feedback">Please add a valid comment.</div>
+                        </div>
+                        <button>Submit</button>
+                    </form>
+                    <% } %>
+
+                        <% if(currList.reviews.length> 0) { %>
+                            <div class="showReview">
+                                <h2>All Reviews</h2>
+                                <div class="reviewCard">
+                                    <% for(review of currList.reviews) { %>
+                                        <div class="oneCard">
+                                            <div class="cardName">
+                                                @<%= review.author.username %>
+                                            </div>
+                                            <div class="cardRating">
+                                                <p class="starability-result" data-rating="<%=review.rating%>">
+                                                    Rated: 3 stars
+                                                </p>
+                                            </div>
+                                            <p class="cardComment">
+                                                <%= review.comment %>
+                                            </p>
+
+                                            <form
+                                                action="/listings/<%=currList._id%>/reviews/<%=review._id%>?_method=DELETE"
+                                                method="POST">
+                                                <button>Delete</button>
+                                            </form>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                            <% } %>
+                </div>
+                <hr>
+
+                <div class="mapShow">
+                    <h3>Where you'll be</h3>
+                    <div id="map" data-token="<%= process.env.MAP_TOKEN %>"
+                        data-listing="<%= JSON.stringify(currList) %>">
+                    </div>
+                </div>
+        </div>
+        </div>
+
+        <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.0/maptiler-sdk.umd.js"></script>
+        <script src="/JS/map.js"></script>
+    </body>
+
+
+
+    <!-- #d90965 -->
+    <!-- toLocaleString converts the number to string with commas according to thousand,lakhs etc. en-IN means commas according to indian standards.-->

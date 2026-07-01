@@ -1,0 +1,17 @@
+<% if(success && success.length) { %>
+    <div class="successMsg">
+        <div class="flashMsg"> <%= success %> </div>
+    <form action="">
+        <button class="flashBtn">OK</button>
+    </form>
+</div>
+<% } %>
+
+<% if(error && error.length) { %>
+    <div class="successMsg">
+        <div class="flashMsg"> <%= error%> </div>
+    <form action="">
+        <button class="flashBtn">OK</button>
+    </form>
+</div>
+<% } %>

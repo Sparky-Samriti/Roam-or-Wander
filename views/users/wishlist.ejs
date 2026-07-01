@@ -1,0 +1,21 @@
+<% layout("/layout/boilerplate"); %>
+
+<body>
+    <h1>Wishlists</h1>
+    
+    <div class="allCards">
+            <% for (list of wishlist) { %>
+                <div class="card">
+                    <a href="/listings/<%=list._id%>">
+                        <div><img src="<%=list.image.url%>" alt="place"></div>
+                        <div class="listTitle">
+                            <%=list.title%>
+                        </div>
+                        <div class="listPrice">
+                            &#8377;<%=Number(list.price).toLocaleString("en-IN")%> for 1 night
+                        </div>
+                    </a>
+                </div>
+                <% } %>
+        </div>
+</body>

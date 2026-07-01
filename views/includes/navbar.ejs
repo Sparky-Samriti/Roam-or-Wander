@@ -1,0 +1,56 @@
+<div class="navbar">
+    <div class="airLogo">
+        <a href="/" class="logo">
+        <img src="/images/logo.png" alt="Logo" class="logo">
+        </a>
+    </div>
+    <div class="midNav">
+        <div class="homeLogo"><i class="fa-solid fa-house-chimney-user"></i></div>
+        <div class="bookPlace">Bookings</div>
+        <div class="separator separatorOne">|</div>
+        <a class="allPlace" href="/listings">All Places</a>
+        <div class="separator">|</div>
+        <a class="addPlace" href="/listings/new">Add Place</a>
+        <div class="searchLogo"><i class="fa-solid fa-magnifying-glass"></i></div>
+    </div>
+    <div class="midNavMore"><i class="fa-solid fa-grip-lines"></i></div>
+    <div class="lastNav">
+        <a href="/wishlist" class="wishlistPage">Wishlists</a>
+        <div class="langIcon"><i class="fa-solid fa-globe"></i></div>
+        <div class="moreIcon"><i class="fa-solid fa-grip-lines"></i></div>
+        <div class="mobilePanel">
+            <div class="explore mobileOption">
+                <i class="fa-solid fa-magnifying-glass mobileIcon"></i>
+                <div>Explore</div>
+                <a href="/listings" class="stretched-link"></a>
+            </div>
+            <div class="wishlist mobileOption">
+                <i class="fa-regular fa-heart mobileIcon"></i>
+                <div>Wishlists</div>
+                <a href="/wishlist" class="stretched-link"></a>
+            </div>
+            <div class="logOrSignin mobileOption">
+                <i class="fa-regular fa-circle-user mobileIcon"></i>
+                <div>Account</div>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="morePopup">
+    <% if(!currUser) { %>
+        <a class="signup" href="/signup">Sign up</a>
+        <hr>
+        <a class="login" href="/login">Log in</a>
+        <% } %>
+            <% if(currUser) { %>
+                <a href="/logout">Log out</a>
+                <% } %>
+</div>
+
+<div class="midNavMorePopup">
+    <div class="bookPlace">Bookings</div>
+    <hr>
+    <a class="addPlace" href="/listings/new">Add Place</a>
+</div>

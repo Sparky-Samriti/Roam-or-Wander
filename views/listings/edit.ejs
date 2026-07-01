@@ -1,0 +1,102 @@
+<% layout("/layout/boilerplate"); %>
+
+    <body class="editBody">
+
+        <form action="/listings/<%=currList._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <h1>
+                <%=currList.title%>
+            </h1>
+
+            <div class="editImg">
+                <label for="title">Title : </label>
+                <input type="text" name="listing[title]" value="<%=currList.title%>" class="editImg">
+            </div>
+
+            <div class="editDesc">
+                <label for="description">Description : </label>
+                <textarea rows="3" cols="3" name="listing[description]"><%=currList.description%></textarea>
+            </div>
+            
+            <div class="imgDisplay">
+                <div class="imgHeading">Original Image : </div>
+                <img src="<%= originalImageUrl %>" alt="ListingImage">
+            </div>
+
+            <div class="editImg">
+                <label for="image">Upload new Image : </label>
+                <input type="file" name="listing[image]" class="editImg imageBox">
+            </div>
+
+            <div class="category">
+                <label for="categories">Category :</label>
+                <select name="listing[category]" id="categories" data-category="<%= currList.category %>">
+                    <option value="Icons">Icons</option>
+                        <option value="Design" selected>Design</option>
+                        <option value="Amazing pools">Amazing pools</option>
+                        <option value="Beachfront">Beachfront</option>
+                        <option value="Cabins">Cabins</option>
+                        <option value="Mansions">Mansions</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Lakefront">Lakefront</option>
+                        <option value="Countryside">Countryside</option>
+                        <option value="National parks">National parks</option>
+                        <option value="Caves">Caves</option>
+                        <option value="Tropical">Tropical</option>
+                        <option value="Historical homes">Historical homes</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Tiny homes">Tiny homes</option>
+                        <option value="Amazing views">Amazing views</option>
+                        <option value="Islands">Islands</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Farmhouses">Farmhouses</option>
+                        <option value="Surfing">Surfing</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Skiing">Skiing</option>
+                        <option value="Bed & breakfasts">Bed & breakfasts</option>
+                        <option value="Golfing">Golfing</option>
+                        <option value="Creative spaces">Creative spaces</option>
+                        <option value="Chef's kitchens">Chef's kitchens</option>
+                        <option value="Luxe">Luxe</option>
+                        <option value="Vineyard">Vineyard</option>
+                        <option value="New">New</option>
+                        <option value="Top of the world">Top of the world</option>
+                        <option value="Off-the-grid">Off-the-grid</option>
+                        <option value="Treehouses">Treehouses</option>
+                        <option value="Play">Play</option>
+                        <option value="Lake">Lake</option>
+                        <option value="Hanoks">Hanoks</option>
+                        <option value="Ryokans">Ryokans</option>
+                        <option value="Minsus">Minsus</option>
+                        <option value="Shepherd's huts">Shepherd's huts</option>
+                        <option value="Earth homes">Earth homes</option>
+                        <option value="Domes">Domes</option>
+                        <option value="Yurts">Yurts</option>
+                        <option value="Trulli">Trulli</option>
+                        <option value="Cycladic homes">Cycladic homes</option>
+                        <option value="Campervans">Campervans</option>
+                        <option value="Windmills">Windmills</option>
+                        <option value="Barns">Barns</option>
+                        <option value="Towers">Towers</option>
+                        <option value="Houseboats">Houseboats</option>
+                        <option value="Boats">Boats</option>
+                        <option value="Desert">Desert</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Ski-in/out">Ski-in/out</option>
+                        <option value="Grand pianos">Grand pianos</option>
+                    </select>
+            </div>
+
+            <div class="priceLocation">
+                <div class="editPrice">
+                    <label for="price">Price : </label>
+                    <input name="listing[price]" value="<%=currList.price%>">
+                </div>
+
+                <div class="fullLoc">
+                    <label for="location">Location : </label>
+                    <input type="text" name="listing[location]" value="<%=currList.location%>">
+                </div>
+            </div>
+            <button class="editBtn">Edit</button>
+        </form>
+    </body>
